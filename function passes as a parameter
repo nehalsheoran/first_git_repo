@@ -1,0 +1,13 @@
+// Define a function that will be passed as a parameter
+function multiply(a, b) {
+    return a * b;
+}
+
+// Define a function that accepts another function as a parameter
+function performOperation(operation, num1, num2) {
+    return operation(num1, num2);
+}
+
+// Use the functions
+const result = performOperation(multiply, 5, 10);
+console.log(result); // Outputs: 50
