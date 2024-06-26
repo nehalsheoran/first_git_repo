@@ -1,0 +1,5 @@
+const getInitials = (firstName, lastName) => firstName[0] + lastName[0];
+
+// Test the function
+console.log(getInitials("Roger", "Waters")); // Outputs: RW
+
