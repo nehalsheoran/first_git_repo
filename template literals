@@ -1,0 +1,11 @@
+//Original:
+
+const printBill = (name, bill) => {
+    return "Hi " + name + ", please pay: " + bill;
+}
+
+//Refactored:
+
+const printBill = (name, bill) => `Hi ${name}, please pay: ${bill}`;
+
+//Explanation: Template literals (enclosed by backticks `) allow embedded expressions. This makes string construction more readable and concise.
