@@ -1,0 +1,11 @@
+//Original:
+
+const printName = (name) => {
+    return "Hi" + name;
+}
+
+//Refactored:
+
+const printName = name => `Hi ${name}`;
+
+//Explanation: This uses an arrow function without curly braces and a return statement for a one-liner. The template literal (${}) is used for string interpolation.
