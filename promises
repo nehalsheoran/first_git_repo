@@ -1,0 +1,66 @@
+//To handle asynchronous operations like fetching data from a REST endpoint, you need to use Promises and async/await in JavaScript. The provided code uses setTimeout to simulate an asynchronous operation, and we need to make sure the program waits until this asynchronous operation is completed to get the correct email.
+
+//Here’s how you can refactor the code to use Promises and async/await:
+
+//Using Promises
+//First, we will convert getData to return a Promise.
+
+
+function getData(uId) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Fetched the data!");
+            resolve("skc@gmail.com");
+        }, 4000);
+    });
+}
+
+console.log("start");
+getData("skc").then(email => {
+    console.log("Email id of the user id is: " + email);
+    console.log("end");
+}).catch(error => {
+    console.error("Error:", error);
+});
+
+
+
+//Using async/await
+//Next, we can use async/await for better readability.
+
+
+function getData(uId) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Fetched the data!");
+            resolve("skc@gmail.com");
+        }, 4000);
+    });
+}
+
+async function displayEmail() {
+    console.log("start");
+    try {
+        const email = await getData("skc");
+        console.log("Email id of the user id is: " + email);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+    console.log("end");
+}
+
+displayEmail();
+
+
+//Explanation
+//Promise-based getData function: We wrap the setTimeout in a Promise, resolving the email after the timeout.
+//Async function displayEmail:
+//We use async to define an asynchronous function.
+//await getData("skc") pauses the function execution until getData resolves.
+//We use try...catch to handle any potential errors.
+//Execution flow:
+//console.log("start") is printed.
+//The function waits for getData to complete and print console.log("Fetched the data!").
+//Once the Promise resolves, the email is printed.
+//Finally, console.log("end") is printed.
+//By using Promises and async/await, we ensure the program waits for the asynchronous operation to complete before accessing the email, resulting in the correct output.
